@@ -1,0 +1,26 @@
+# New CMS server — Intek adapter behind the local nginx (deploy/new-server).
+name: nott-intek
+# Host layout and permissions: deploy/CUTOVER.md section 0.
+services:
+  intek-api:
+    build: ..
+    image: nott/intek-api:${INTEK_VERSION:-0.1.0}
+    restart: unless-stopped
+    # Secrets live outside the release folder: root-owned, mode 0600.
+    env_file: ${INTEK_ENV_FILE:-/etc/nott-intek-api/intek-api.env}
+    ports:
+      - "127.0.0.1:8090:8090"         # nginx on the same host is the only client
+    volumes:
+      # Legacy log files, owned on the host by nott-intek (uid 10001), group adm
+      - /var/log/nott-intek-api:/var/www/cms/log
+    # Least privilege: the service only reads its code and writes its logs.
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m,mode=1777
+    cap_drop: [ALL]
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 256
+    logging:
+      driver: json-file
+      options: { max-size: "50m", max-file: "5" }

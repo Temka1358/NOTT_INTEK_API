@@ -1,0 +1,16 @@
+[Unit]
+Description=Pull Intek posters from cms1 (read-only rsync over SSH)
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=postersync
+ExecStart=/usr/local/bin/poster-sync.sh
+Nice=10
+IOSchedulingClass=idle
+# The script needs nothing else on this machine
+ProtectSystem=strict
+ReadWritePaths=/var/www/cms.ddishtv.mn/cms/posters
+PrivateTmp=yes
+NoNewPrivileges=yes

@@ -1,0 +1,21 @@
+{
+  "name": "nott-intek-api",
+  "version": "0.1.0",
+  "description": "Node replacement for the Intek/Arion STB-facing PHP API (cms.ddishtv.mn)",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test test/emulation.test.js",
+    "start": "node src/index.js",
+    "parity": "node test/parity/run.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "mysql2": "^3.24.6"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}

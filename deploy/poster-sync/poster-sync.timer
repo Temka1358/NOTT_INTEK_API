@@ -1,0 +1,10 @@
+[Unit]
+Description=Pull Intek posters from cms1 every 30 s
+
+[Timer]
+OnBootSec=30s
+OnUnitActiveSec=30s
+AccuracySec=5s
+
+[Install]
+WantedBy=timers.target
