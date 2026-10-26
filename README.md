@@ -100,7 +100,7 @@ The server deploys **tags only** (`v1.2.3`). For every change: commit, `npm test
 
 ## Deploying on the new server
 
-Step-by-step: **`deploy/CUTOVER.md`**. Its section 0 prepares the Ubuntu server: one account per person and per service, root-owned read-only code under `/opt/nott-intek-api/releases/<version>`, secrets in `/etc/nott-intek-api` (0600), logs in `/var/log/nott-intek-api` (`nott-intek:adm`, 2750), SSH key-only, ufw, automatic security updates. `scripts/check-server-layout.sh` verifies all of it. The container runs as uid 10001 with a read-only filesystem and no Linux capabilities.
+Step-by-step: **`deploy/CUTOVER.md`**. Part 1 (steps 1–7) prepares the Ubuntu server: one account per person and per service, root-owned read-only code under `/opt/nott-intek-api/releases/<version>`, secrets in `/etc/nott-intek-api` (0600), logs in `/var/log/nott-intek-api` (`nott-intek:adm`, 2750), SSH key-only, ufw, automatic security updates. `scripts/check-server-layout.sh` verifies all of it. The container runs as uid 10001 with a read-only filesystem and no Linux capabilities.
 
 In short:
 

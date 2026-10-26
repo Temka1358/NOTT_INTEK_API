@@ -18,6 +18,7 @@ DEST="${POSTER_DEST:-/var/www/cms.ddishtv.mn/cms/posters/}"
 KEY="${POSTER_KEY:-$HOME/.ssh/cms1_posters}"
 
 rsync -rtp --chmod=D755,F644 --timeout=60 \
-      --include='*.png' --include='*.PNG' --include='*.jpg' --include='*.jpeg' --exclude='*' \
+      --include='*.png' --include='*.PNG' --include='*.jpg' --include='*.JPG' \
+      --include='*.jpeg' --include='*.JPEG' --exclude='*' \
       -e "ssh -i $KEY -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10" \
       "$SRC" "$DEST"

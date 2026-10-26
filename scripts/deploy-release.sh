@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Deploy tagged versions of nott-intek-api from git. Run as root on the server.
-# Installed as /usr/local/sbin/deploy-nott-intek (deploy/CUTOVER.md section 0.3).
+# Installed as /usr/local/sbin/deploy-nott-intek (deploy/CUTOVER.md step 7).
 #
 #   deploy-nott-intek fetch              update the local mirror from the git remote
 #   deploy-nott-intek install <tag>      export <tag> into releases/<tag> (root-owned, no .git)
@@ -37,7 +37,7 @@ valid_tag() { [[ "$1" =~ ^v[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.]+)?$ ]] || die "t
 current_tag() { [ -L "$BASE/current" ] && basename "$(readlink "$BASE/current")" || echo ""; }
 
 cmd_fetch() {
-  [ -d "$MIRROR" ] || die "no mirror at $MIRROR (see CUTOVER.md 0.3)"
+  [ -d "$MIRROR" ] || die "no mirror at $MIRROR (see CUTOVER.md step 7)"
   dgit fetch --prune --prune-tags --tags origin
   say "mirror updated; newest tags: $(dgit tag --sort=-v:refname | head -5 | tr '\n' ' ')"
 }

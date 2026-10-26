@@ -1,6 +1,6 @@
 # New CMS server — Intek adapter behind the local nginx (deploy/new-server).
 name: nott-intek
-# Host layout and permissions: deploy/CUTOVER.md section 0.
+# Host layout and permissions: deploy/CUTOVER.md Part 1 (steps 2 and 6).
 services:
   intek-api:
     build: ..

@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates
 ENV NODE_ENV=production NODE_OPTIONS=--use-openssl-ca
 
 # Dedicated runtime user with a FIXED id, matched on the host by the
-# `nott-intek` system account (deploy/CUTOVER.md section 0). The image's
+# `nott-intek` system account (deploy/CUTOVER.md step 2). The image's
 # default `node` user is uid 1000, which on a host is usually the first human
 # account — that person would then own the service's log files.
 RUN groupadd --system --gid 10001 nott \

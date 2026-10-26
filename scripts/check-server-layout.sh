@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Checks the new server against deploy/CUTOVER.md section 0 (accounts,
+# Checks the new server against deploy/CUTOVER.md Parts 1-3 (steps 2-15: accounts,
 # folders, permissions, SSH, firewall, patching). Read-only.
 #   sudo bash check-server-layout.sh
 # Prints one PASS / WARN / FAIL line per check; exit code = number of FAILs.
